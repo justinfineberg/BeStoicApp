@@ -3,12 +3,21 @@ import "./App.css";
 import { connect } from "react-redux";
 import React, { useState } from "react";
 import { getQuote, beginAgain } from "./actions/actions";
+import {
+  ShareButtons,
+  ShareCount,
+  generateShareIcon,
+  TwitterIcon,
+  TwitterShareButton,
+} from "react-share";
+
+const initialForm = {
+  rephrase: "",
+  name: "",
+};
 
 function App(props) {
-  const [form, setForm] = useState({
-    rephrase: "",
-    name: "",
-  });
+  const [form, setForm] = useState(initialForm);
   const [submit, setSubmit] = useState(false);
 
   const handleClick = () => {
@@ -27,18 +36,23 @@ function App(props) {
     setSubmit(!submit);
     props.dispatch(beginAgain());
   };
-  
+
   console.log(form);
   return (
     <div>
       {submit && (
         <div className="flex flex-col gap-6">
           <div className="lg:w-3/6 w-11/12 rounded-lg shadow-xl mt-20 border bg-gray-100 flex flex-col p-10 hover:bg-gray-200 m-auto mt-20">
-            <h3 className="text-3xl font-bold text-center">"{form.rephrase}"</h3>
+            <h3 className="text-3xl font-bold text-center">
+              "{form.rephrase}"
+            </h3>
 
-            <h6 className=" text-xl text-right w-1/3 mt-10 m-auto ">-{form.name}</h6>
-            <h6 className=" text-md text-right w-1/3 m-auto italic ">A stoic philospher</h6>
-           
+            <h6 className=" text-xl text-right w-1/3 mt-10 m-auto ">
+              -{form.name}
+            </h6>
+            <h6 className=" text-md text-right w-1/3 m-auto italic ">
+              A stoic philospher
+            </h6>
           </div>
           <button
             className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow m-auto"
@@ -46,6 +60,17 @@ function App(props) {
           >
             Go Again?
           </button>
+          <div className="text-center">
+            <TwitterShareButton
+              url="
+        www.BecomeAStoic.com"
+              title={`${form.rephrase}
+        -${form.name} (A Stoic Philosopher)`}
+              className="Demo__some-network__share-button"
+            >
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+          </div>
         </div>
       )}
       {!submit && (
