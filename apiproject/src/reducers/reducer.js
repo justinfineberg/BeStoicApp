@@ -1,9 +1,9 @@
-import {FETCH_FAIL, FETCH_START, FETCH_SUCCESS } from './../actions/actions'
+import {FETCH_FAIL, FETCH_START, FETCH_SUCCESS, BEGIN } from './../actions/actions'
 
 const initalState = {
-    quoteObject: {},
+    quoteObject: null,
     isFetching: false,
-    err: ''
+    err: '',
 }
 
 const reducer = (state=initalState, action) =>{
@@ -11,7 +11,7 @@ const reducer = (state=initalState, action) =>{
         case(FETCH_START):
           return({
             ...state,
-            quoteObject: {},
+            quoteObject: null,
             isFetching: true,
             error:''
           });
@@ -28,6 +28,13 @@ const reducer = (state=initalState, action) =>{
             quoteObject: {},
             isFetching: false,
             error: action.payload
+          })
+          case(BEGIN):
+          return({
+              ...state,
+              quoteObject: null,
+              isFetching: false,
+              err:''
           })
         default:
           return state;

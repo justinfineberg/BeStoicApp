@@ -3,6 +3,11 @@ import axios from 'axios'
 export const FETCH_START = "FETCH_START"
 export const FETCH_SUCCESS = "FETCH_SUCCESS"
 export const FETCH_FAIL = "FETCH_FAIL"
+export const BEGIN = "BEGIN"
+
+export const beginAgain = ()=>{
+    return ({type: BEGIN})
+}
 
 export const fetchStart = ()=> ({type: FETCH_START});
 
