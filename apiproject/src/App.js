@@ -51,7 +51,7 @@ function App(props) {
               -{form.name}
             </h6>
             <h6 className=" text-md text-right md:w-2/3 m-auto italic ">
-              A stoic philospher
+              A Stoic Philosopher
             </h6>
           </div>
           <button
@@ -63,7 +63,7 @@ function App(props) {
           <div className="text-center">
             <TwitterShareButton
               url="
-        www.BecomeAStoic.com"
+        www.BeStoic.xyz"
               title={`${form.rephrase}
         -${form.name} (A Stoic Philosopher)`}
               className="Demo__some-network__share-button"
@@ -74,7 +74,7 @@ function App(props) {
         </div>
       )}
       {!submit && (
-        <div className="flex flex-col justify-center gap-2 md:gap-4 lg:w-3/6 m-auto w-10/12">
+        <div className="flex flex-col justify-center gap-2 md:gap-4 lg:w-3/6 mb-10 m-auto w-10/12">
           <h1 className="font-bold text-4xl mb-2 mt-6 md:mt-14">A Stoic Reflection</h1>
 
           <h3 className="text-lg ">
