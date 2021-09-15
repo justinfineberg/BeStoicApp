@@ -37,7 +37,7 @@ function App(props) {
     props.dispatch(beginAgain());
   };
 
-  console.log(form);
+
   return (
     <div>
       {submit && (
@@ -71,6 +71,7 @@ function App(props) {
               <TwitterIcon size={32} round />
             </TwitterShareButton>
           </div>
+          <div className="absolute inset-x-0 bottom-3 text-xs text-center"> <a href="https://twitter.com/JustinFineberg">@JustinFineberg</a> </div>
         </div>
       )}
       {!submit && (
@@ -113,7 +114,7 @@ function App(props) {
                   placeholder="Enter Your Words"
                   className="md:w-2/3 w-full mb-5 h-16 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
                 ></textarea>
-                <div class="relative md:w-3/6 w-full text-gray-700">
+                <div className="relative md:w-3/6 w-full text-gray-700">
                   <input
                     onChange={onChange}
                     name="name"
@@ -134,12 +135,12 @@ function App(props) {
           {props.isFetching && (
             <svg className="spinner" viewBox="0 0 50 50">
               <circle
-                class="path"
+                className="path"
                 cx="25"
                 cy="25"
                 r="20"
                 fill="none"
-                stroke-width="5"
+                strokeWidth="5"
               ></circle>
             </svg>
           )}
